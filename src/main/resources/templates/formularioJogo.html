@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<div style="margin-top: 100px;" class="container">
+
+  <form style="height: 700px; padding: 20px; background-color: #FF0000;" class="col-sm-12" th:action="@{/jogos/novo}" th:object="${jogo}" method="POST">
+
+    <div class="col-sm-12 row">
+
+      <div class="row col-sm-3 justify-content-center">
+
+        <div class="col-sm-12 text-start">
+
+          <h3 style="color: #FFFFFF;"><strong>Adicionar jogo</strong></h3>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-9">
+
+        <div class="col-sm-12">
+
+          <div class="form-group col-sm-12">
+
+            <input type="hidden" th:field="*{id}"></input>
+
+          </div>
+
+          <div class="form-group col-sm-12">
+
+            <label style="color: #FFFFFF;" for="nome"><strong>Nome do jogo</strong> </label>
+            <input type="text" class="form-control" th:field="*{nome}" id="nome" name="nome" placeholder="Digite o nome do jogo" required>
+
+          </div>
+
+          <div class="form-group col-sm-12">
+
+            <label style="color: #FFFFFF;" for="classificacao"><strong>Classificação</strong> </label>
+            <select class="form-select" aria-label="Escolha um nível de Classificação" th:field="*{classificacao}" name="classificacao" id="classificacao">
+
+              <option value="1">1 estrela</option>
+              <option value="2">2 estrelas</option>
+              <option value="3">3 estrelas</option>
+              <option value="4">4 estrelas</option>
+              <option value="5">5 estrelas</option>
+
+            </select>
+
+            <label style="margin-top: 10px; color: #FFFFFF;" for="comentario"><strong>Comentário</strong> </label>
+            <textarea style="height: 300px;" class="form-control" th:field="*{comentario}" id="comentario" name="comentario" rows="9" maxlength="1000"> </textarea>
+
+            <button style="margin: 20px;width: 190px;" type="submit" class="btn btn-success">Enviar</button>
+            <a th:href="@{/jogos}" style="margin: 20px;width: 190px;" class="btn btn-success">Voltar</a>
+            <div id="msg-registro"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
